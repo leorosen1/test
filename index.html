@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Instead of Flowers</title>
+  <style>
+    /* Reset and base styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      height: 100%;
+      font-family: Arial, sans-serif;
+      background-color: #0f172a;
+      color: white;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .background-effect {
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle at center, #6366f1, #ec4899, #06b6d4);
+      opacity: 0.15;
+      filter: blur(100px);
+      animation: moveBg 30s ease-in-out infinite;
+      z-index: 0;
+    }
+
+    @keyframes moveBg {
+      0% {
+        transform: translate(0, 0) scale(1);
+      }
+      50% {
+        transform: translate(10%, 10%) scale(1.05);
+      }
+      100% {
+        transform: translate(0, 0) scale(1);
+      }
+    }
+
+    .content {
+      position: relative;
+      z-index: 1;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 0 1rem;
+    }
+
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+
+    p {
+      font-size: 1.25rem;
+      max-width: 600px;
+    }
+  </style>
+</head>
+<body>
+  <div class="background-effect"></div>
+  <div class="content">
+    <h1>Instead of Flowers</h1>
+    <p>Effortless gifting reminders and curated picks delivered straight to your phone. Because you're better than a last-minute bouquet.</p>
+  </div>
+</body>
+</html>
