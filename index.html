@@ -10,12 +10,12 @@
       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
         Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
       color: white;
-      background: radial-gradient(circle at 20% 30%, #a300a3, #1e1f3a, #12121c);
-      height: 100vh;
-      animation: bgShift 20s ease infinite;
+      background: linear-gradient(120deg, #a300a3, #1e1f3a, #12121c);
+      background-size: 600% 600%;
+      animation: slowShift 60s ease infinite;
     }
 
-    @keyframes bgShift {
+    @keyframes slowShift {
       0% { background-position: 0% 50%; }
       50% { background-position: 100% 50%; }
       100% { background-position: 0% 50%; }
@@ -44,14 +44,14 @@
     }
 
     .left {
-      padding-left: 80px;
+      padding-left: 100px;
       display: flex;
       flex-direction: column;
       justify-content: center;
     }
 
     .left h1 {
-      font-size: 2.2em;
+      font-size: 2.4em;
       font-weight: 800;
       margin-bottom: 20px;
     }
@@ -68,11 +68,12 @@
       justify-content: center;
       align-items: center;
       overflow: hidden;
-      padding: 0; /* less padding */
+      padding: 0;
     }
 
     .portrait {
       height: 100%;
+      max-height: 100vh;
       object-fit: cover;
       object-position: center;
     }
@@ -94,7 +95,7 @@
       .right {
         order: 0;
         width: 100%;
-        height: 280px;
+        height: 250px;
       }
 
       .left h1 {
@@ -114,9 +115,6 @@
 <body>
   <img src="logo.png" alt="Logo" class="logo" />
   <div class="container">
-    <div class="right">
-      <img src="portrait.gif" alt="Animated Gift Portrait" class="portrait" />
-    </div>
     <div class="left">
       <h1>SMS Gift Concierge Reminder Service</h1>
       <div class="details">
@@ -126,6 +124,9 @@
         <br>
         <p><strong>Message “Start” to<br>+1 (866) 763-2839</strong></p>
       </div>
+    </div>
+    <div class="right">
+      <img src="portrait.gif" alt="Animated Gift Portrait" class="portrait" />
     </div>
   </div>
 </body>
