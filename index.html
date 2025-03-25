@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Instead of Flowers</title>
+  <title>SMS Gift Concierge</title>
   <style>
     body {
       margin: 0;
       padding: 0;
-      font-family: Arial, sans-serif;
+      font-family: 'Helvetica Neue', sans-serif;
       background-color: white;
     }
 
@@ -17,98 +17,98 @@
       top: 0;
       left: 0;
       width: 100%;
-      height: 50vh;
-      background: linear-gradient(120deg, rgba(102, 0, 204, 0.4), rgba(255, 0, 153, 0.4));
-      animation: gradientMove 4s ease-in-out infinite alternate;
-      z-index: 0;
-      clip-path: polygon(0 0, 100% 0, 100% 30%, 0 100%);
+      height: 60vh;
+      background: linear-gradient(135deg, #3b0a57, #c1126b);
+      clip-path: polygon(0 0, 100% 0, 100% 50%, 0 100%);
+      animation: gradientAnimation 6s ease infinite alternate;
+      z-index: -1;
     }
 
-    @keyframes gradientMove {
-      0% {
-        background-position: 0% 50%;
-      }
-      100% {
-        background-position: 100% 50%;
-      }
+    @keyframes gradientAnimation {
+      0% { background-position: 0% 50%; }
+      100% { background-position: 100% 50%; }
     }
 
     .container {
-      position: relative;
-      z-index: 1;
       display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      align-items: flex-start;
-      padding: 80px;
-    }
-
-    .left {
-      flex: 1;
-      min-width: 300px;
-      padding-right: 40px;
-    }
-
-    .right {
-      flex: 1;
-      min-width: 300px;
-      display: flex;
+      flex-direction: row;
+      align-items: center;
       justify-content: center;
-      align-items: flex-start;
+      height: 100vh;
+      padding: 0 60px;
+      box-sizing: border-box;
     }
 
-    .logo {
-      width: 250px;
-      margin-bottom: 20px;
-      position: absolute;
-      top: 20px;
-      left: 20px;
-      z-index: 2;
+    .content {
+      max-width: 500px;
+      margin-right: 40px;
     }
 
-    h1 {
-      font-size: 36px;
+    .content h1 {
+      font-size: 38px;
       font-weight: bold;
       margin-bottom: 20px;
     }
 
-    p {
-      font-size: 16px;
-      margin-bottom: 10px;
+    .content p {
+      font-size: 18px;
+      line-height: 1.6;
+    }
+
+    .content p strong {
+      font-weight: bold;
     }
 
     .gif {
-      width: 100%;
-      max-width: 400px;
+      max-width: 300px;
+      height: 300px;
       object-fit: cover;
+      border-radius: 4px;
+    }
+
+    .logo {
+      position: absolute;
+      top: 20px;
+      left: 30px;
+      width: 250px;
     }
 
     @media (max-width: 768px) {
       .container {
         flex-direction: column;
-        text-align: left;
+        justify-content: flex-start;
+        padding-top: 30vh;
+        text-align: center;
       }
-      .right {
-        margin-top: 30px;
+
+      .content {
+        margin-right: 0;
+        margin-bottom: 20px;
+      }
+
+      .content h1 {
+        font-size: 28px;
+      }
+
+      .gif {
+        width: 250px;
+        height: 250px;
       }
     }
   </style>
 </head>
 <body>
   <div class="background"></div>
-  <img src="logo.png" alt="Logo" class="logo" />
+  <img src="logo.png" alt="Logo" class="logo">
   <div class="container">
-    <div class="left">
+    <div class="content">
       <h1>SMS Gift Concierge<br>Reminder Service</h1>
       <p>- We highly curate the best gifts from all over the internet</p>
       <p>- We remind you when to buy and give you simple options that will impress</p>
       <p>- We text it all to you for FREE</p>
-      <br>
       <p><strong>Message “Start” to<br>+1 (866) 763-2839</strong></p>
     </div>
-    <div class="right">
-      <img src="portrait.gif" alt="Gift Portrait" class="gif" />
-    </div>
+    <img src="portrait.gif" alt="Gift Portrait" class="gif">
   </div>
 </body>
 </html>
