@@ -9,26 +9,45 @@
       margin: 0;
       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
         Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-      color: white;
-      background: linear-gradient(120deg, #a300a3, #1e1f3a, #12121c);
-      background-size: 600% 600%;
-      animation: slowShift 60s ease infinite;
+      background: white;
+      overflow: hidden;
     }
 
-    @keyframes slowShift {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
+    .streak {
+      position: absolute;
+      top: 0;
+      left: -50%;
+      width: 200%;
+      height: 100%;
+      background: linear-gradient(
+        120deg,
+        rgba(255, 0, 150, 0.3),
+        rgba(0, 200, 255, 0.3),
+        rgba(255, 200, 0, 0.3)
+      );
+      filter: blur(100px);
+      opacity: 0.5;
+      animation: moveStreak 20s linear infinite;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    @keyframes moveStreak {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-25%); }
     }
 
     .logo {
       position: absolute;
       top: 30px;
       left: 30px;
-      width: 120px;
+      width: 250px;
+      z-index: 2;
     }
 
     .container {
+      position: relative;
+      z-index: 1;
       display: flex;
       height: 100vh;
       width: 100%;
@@ -54,6 +73,7 @@
       font-size: 2.4em;
       font-weight: 800;
       margin-bottom: 20px;
+      color: #111;
     }
 
     .left .details {
@@ -61,6 +81,7 @@
       line-height: 1.6;
       margin: 10px 0;
       max-width: 550px;
+      color: #333;
     }
 
     .right {
@@ -107,12 +128,13 @@
       }
 
       .logo {
-        width: 250px;
+        width: 180px;
       }
     }
   </style>
 </head>
 <body>
+  <div class="streak"></div>
   <img src="logo.png" alt="Logo" class="logo" />
   <div class="container">
     <div class="left">
