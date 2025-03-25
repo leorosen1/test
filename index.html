@@ -16,25 +16,21 @@
     .streak {
       position: absolute;
       top: 0;
-      left: -50%;
-      width: 200%;
+      left: 0;
+      width: 100%;
       height: 100%;
-      background: linear-gradient(
-        120deg,
-        rgba(255, 0, 150, 0.3),
-        rgba(0, 200, 255, 0.3),
-        rgba(255, 200, 0, 0.3)
-      );
-      filter: blur(100px);
-      opacity: 0.5;
-      animation: moveStreak 20s linear infinite;
+      background: linear-gradient(135deg, magenta 0%, cyan 100%);
+      opacity: 0.4;
+      filter: blur(80px);
+      animation: moveStreak 30s linear infinite;
+      clip-path: polygon(0 0, 50% 0, 0 50%);
       z-index: 0;
       pointer-events: none;
     }
 
     @keyframes moveStreak {
       0% { transform: translateX(0); }
-      100% { transform: translateX(-25%); }
+      100% { transform: translateX(-10%); }
     }
 
     .logo {
@@ -128,7 +124,7 @@
       }
 
       .logo {
-        width: 250px;
+        width: 180px;
       }
     }
   </style>
