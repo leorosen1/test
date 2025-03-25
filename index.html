@@ -7,8 +7,7 @@
   <style>
     body {
       margin: 0;
-      padding: 0;
-      font-family: 'Helvetica Neue', sans-serif;
+      font-family: Arial, sans-serif;
       background-color: white;
     }
 
@@ -18,80 +17,111 @@
       left: 0;
       width: 100%;
       height: 60vh;
-      background: linear-gradient(135deg, #3b0a57, #c1126b);
+      background: linear-gradient(135deg, rgba(102, 0, 153, 0.6), rgba(255, 0, 153, 0.6));
       clip-path: polygon(0 0, 100% 0, 100% 50%, 0 100%);
-      animation: gradientAnimation 6s ease infinite alternate;
       z-index: -1;
+      animation: backgroundShift 10s ease infinite alternate;
     }
 
-    @keyframes gradientAnimation {
-      0% { background-position: 0% 50%; }
-      100% { background-position: 100% 50%; }
+    @keyframes backgroundShift {
+      0% {
+        background-position: 0% 50%;
+      }
+      100% {
+        background-position: 100% 50%;
+      }
     }
 
     .container {
       display: flex;
-      flex-direction: row;
+      flex-direction: column;
       align-items: center;
       justify-content: center;
-      height: 100vh;
-      padding: 0 60px;
+      min-height: 100vh;
+      padding: 60px;
       box-sizing: border-box;
     }
 
-    .content {
-      max-width: 500px;
-      margin-right: 40px;
+    .header {
+      position: absolute;
+      top: 30px;
+      left: 40px;
     }
 
-    .content h1 {
-      font-size: 38px;
+    .header img {
+      width: 250px;
+    }
+
+    .content {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      max-width: 1200px;
+      width: 100%;
+      margin-top: 120px;
+    }
+
+    .text {
+      flex: 1;
+      padding: 20px;
+      min-width: 300px;
+    }
+
+    .text h1 {
+      font-size: 3rem;
       font-weight: bold;
       margin-bottom: 20px;
     }
 
-    .content p {
-      font-size: 18px;
+    .text p {
+      font-size: 1.2rem;
       line-height: 1.6;
+      margin: 10px 0;
     }
 
-    .content p strong {
+    .text p.emoji::before {
+      content: '🎁';
+      margin-right: 8px;
+    }
+
+    .text .cta {
+      margin-top: 20px;
+      font-size: 1.2rem;
       font-weight: bold;
     }
 
-    .gif {
-      max-width: 300px;
-      height: 300px;
-      object-fit: cover;
-      border-radius: 4px;
+    .image {
+      flex: 1;
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      min-width: 300px;
+      padding: 20px;
     }
 
-    .logo {
-      position: absolute;
-      top: 20px;
-      left: 30px;
-      width: 250px;
+    .image img {
+      height: 350px;
+      object-fit: cover;
     }
 
     @media (max-width: 768px) {
-      .container {
-        flex-direction: column;
-        justify-content: flex-start;
-        padding-top: 30vh;
-        text-align: center;
-      }
-
       .content {
-        margin-right: 0;
-        margin-bottom: 20px;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 60px;
       }
 
-      .content h1 {
-        font-size: 28px;
+      .text h1 {
+        font-size: 2rem;
       }
 
-      .gif {
-        width: 250px;
+      .text p,
+      .text .cta {
+        font-size: 1rem;
+      }
+
+      .image img {
         height: 250px;
       }
     }
@@ -99,16 +129,24 @@
 </head>
 <body>
   <div class="background"></div>
-  <img src="logo.png" alt="Logo" class="logo">
+
+  <div class="header">
+    <img src="logo.png" alt="Instead of Flowers Logo" />
+  </div>
+
   <div class="container">
     <div class="content">
-      <h1>SMS Gift Concierge<br>Reminder Service</h1>
-      <p>- We highly curate the best gifts from all over the internet</p>
-      <p>- We remind you when to buy and give you simple options that will impress</p>
-      <p>- We text it all to you for FREE</p>
-      <p><strong>Message “Start” to<br>+1 (866) 763-2839</strong></p>
+      <div class="text">
+        <h1>SMS Gift Concierge<br />Reminder Service</h1>
+        <p class="emoji">We highly curate the best gifts from all over the internet</p>
+        <p class="emoji">We remind you when to buy and give you simple options that will impress</p>
+        <p class="emoji">We text it all to you for FREE</p>
+        <p class="cta">Message “Start” to <br />+1 (866) 763-2839</p>
+      </div>
+      <div class="image">
+        <img src="portrait.gif" alt="Gift Portrait" />
+      </div>
     </div>
-    <img src="portrait.gif" alt="Gift Portrait" class="gif">
   </div>
 </body>
 </html>
