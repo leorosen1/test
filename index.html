@@ -7,146 +7,104 @@
   <style>
     body {
       margin: 0;
-      font-family: Arial, sans-serif;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       background-color: white;
     }
 
     .background {
       position: absolute;
-      top: 0;
-      left: 0;
       width: 100%;
-      height: 60vh;
-      background: linear-gradient(135deg, rgba(102, 0, 153, 0.6), rgba(255, 0, 153, 0.6));
-      clip-path: polygon(0 0, 100% 0, 100% 50%, 0 100%);
+      height: 100vh;
+      background: linear-gradient(135deg, rgba(93, 12, 255, 0.3), rgba(255, 0, 128, 0.3));
+      clip-path: polygon(0 0, 100% 0, 100% 30%, 0 60%);
       z-index: -1;
-      animation: backgroundShift 10s ease infinite alternate;
+      animation: gradientMove 10s ease infinite alternate;
     }
 
-    @keyframes backgroundShift {
-      0% {
-        background-position: 0% 50%;
-      }
-      100% {
-        background-position: 100% 50%;
-      }
+    @keyframes gradientMove {
+      0% { background-position: 0% 50%; }
+      100% { background-position: 100% 50%; }
     }
 
     .container {
       display: flex;
-      flex-direction: column;
-      align-items: center;
       justify-content: center;
+      align-items: flex-start;
+      padding: 100px 60px 40px;
       min-height: 100vh;
-      padding: 60px;
       box-sizing: border-box;
     }
 
-    .header {
-      position: absolute;
-      top: 30px;
-      left: 40px;
-    }
-
-    .header img {
-      width: 250px;
-    }
-
     .content {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-wrap: wrap;
-      max-width: 1200px;
-      width: 100%;
-      margin-top: 120px;
-    }
-
-    .text {
       flex: 1;
-      padding: 20px;
-      min-width: 300px;
+      max-width: 600px;
+      padding-right: 40px;
     }
 
-    .text h1 {
-      font-size: 3rem;
-      font-weight: bold;
+    .content h1 {
+      font-size: 48px;
       margin-bottom: 20px;
     }
 
-    .text p {
-      font-size: 1.2rem;
-      line-height: 1.6;
+    .content p {
+      font-size: 20px;
       margin: 10px 0;
     }
 
-    .text p.emoji::before {
-      content: '🎁';
-      margin-right: 8px;
+    .content p.emoji {
+      font-size: 20px;
+      margin: 8px 0;
     }
 
-    .text .cta {
-      margin-top: 20px;
-      font-size: 1.2rem;
+    .content .phone {
+      margin-top: 30px;
+      font-size: 18px;
       font-weight: bold;
     }
 
-    .image {
+    .gif {
       flex: 1;
-      display: flex;
-      align-items: flex-start;
-      justify-content: center;
-      min-width: 300px;
-      padding: 20px;
+      max-width: 350px;
+      height: auto;
     }
 
-    .image img {
-      height: 350px;
-      object-fit: cover;
+    .logo {
+      position: absolute;
+      top: 30px;
+      left: 40px;
+      width: 250px;
     }
 
     @media (max-width: 768px) {
-      .content {
+      .container {
         flex-direction: column;
         align-items: center;
-        margin-top: 60px;
+        padding: 40px 20px;
       }
 
-      .text h1 {
-        font-size: 2rem;
+      .content {
+        padding-right: 0;
+        text-align: center;
       }
 
-      .text p,
-      .text .cta {
-        font-size: 1rem;
-      }
-
-      .image img {
-        height: 250px;
+      .gif {
+        margin-top: 20px;
       }
     }
   </style>
 </head>
 <body>
   <div class="background"></div>
-
-  <div class="header">
-    <img src="logo.png" alt="Instead of Flowers Logo" />
-  </div>
-
+  <img src="logo.png" alt="Logo" class="logo" />
   <div class="container">
     <div class="content">
-      <div class="text">
-        <h1>SMS Gift Concierge<br />Reminder Service</h1>
-        <p class="emoji">We highly curate the best gifts from all over the internet</p>
-        <p class="emoji">We remind you when to buy and give you simple options that will impress</p>
-        <p class="emoji">We text it all to you for FREE</p>
-        <p class="cta">Message “Start” to <br />+1 (866) 763-2839</p>
-      </div>
-      <div class="image">
-        <img src="portrait.gif" alt="Gift Portrait" />
-      </div>
+      <h1>SMS Gift Concierge<br />Reminder Service</h1>
+      <p class="emoji">🎁 We highly curate the best gifts from all over the internet</p>
+      <p class="emoji">⏰ We remind you when to buy and give you simple options that will impress</p>
+      <p class="emoji">📲 We text it all to you for FREE</p>
+      <p class="phone">Message “Start” to<br />+1 (866) 763-2839</p>
     </div>
+    <img src="portrait.gif" alt="Gift Portrait" class="gif" />
   </div>
 </body>
 </html>
