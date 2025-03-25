@@ -2,35 +2,74 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>SMS Gift Concierge</title>
   <style>
     body {
       margin: 0;
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
-        Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+      font-family: Arial, sans-serif;
       background: white;
-      overflow: hidden;
+      position: relative;
+      overflow-x: hidden;
     }
 
-    .streak {
+    .color-overlay {
       position: absolute;
       top: 0;
       left: 0;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(135deg, magenta 0%, cyan 100%);
-      opacity: 0.4;
-      filter: blur(80px);
-      animation: moveStreak 30s linear infinite;
-      clip-path: polygon(0 0, 50% 0, 0 50%);
+      width: 200%;
+      height: 400px;
+      background: linear-gradient(20deg, #e67aff 0%, transparent 60%);
       z-index: 0;
-      pointer-events: none;
+      transform: rotate(0deg);
+      transform-origin: top left;
     }
 
-    @keyframes moveStreak {
-      0% { transform: translateX(0); }
-      100% { transform: translateX(-10%); }
+    .container {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      padding: 80px 120px;
+      min-height: 100vh;
+    }
+
+    .text-content {
+      flex: 1;
+      padding-right: 40px;
+    }
+
+    .text-content h1 {
+      font-size: 42px;
+      font-weight: 800;
+      margin-bottom: 30px;
+    }
+
+    .text-content p {
+      font-size: 18px;
+      margin-bottom: 18px;
+    }
+
+    .text-content strong {
+      font-size: 18px;
+      display: block;
+      margin-top: 40px;
+    }
+
+    .gif-image {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    .gif-image img {
+      width: auto;
+      height: 500px;
+      object-fit: cover;
     }
 
     .logo {
@@ -41,110 +80,41 @@
       z-index: 2;
     }
 
-    .container {
-      position: relative;
-      z-index: 1;
-      display: flex;
-      height: 100vh;
-      width: 100%;
-      align-items: center;
-      justify-content: space-between;
-      padding: 40px 60px;
-      gap: 30px;
-      box-sizing: border-box;
-    }
-
-    .left, .right {
-      flex: 1;
-    }
-
-    .left {
-      padding-left: 100px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-    }
-
-    .left h1 {
-      font-size: 2.4em;
-      font-weight: 800;
-      margin-bottom: 20px;
-      color: #111;
-    }
-
-    .left .details {
-      font-size: 1em;
-      line-height: 1.6;
-      margin: 10px 0;
-      max-width: 550px;
-      color: #333;
-    }
-
-    .right {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      overflow: hidden;
-      padding: 0;
-    }
-
-    .portrait {
-      height: 100%;
-      max-height: 100vh;
-      object-fit: cover;
-      object-position: center;
-    }
-
     @media (max-width: 768px) {
       .container {
         flex-direction: column;
-        justify-content: flex-start;
-        padding: 30px 20px;
-        gap: 20px;
+        padding: 40px 20px;
       }
 
-      .left {
-        padding-left: 0;
-        order: 1;
+      .text-content {
+        padding-right: 0;
         text-align: center;
       }
 
-      .right {
-        order: 0;
-        width: 100%;
-        height: 250px;
+      .text-content h1 {
+        font-size: 32px;
       }
 
-      .left h1 {
-        font-size: 1.8em;
-      }
-
-      .left .details {
-        font-size: 0.95em;
-      }
-
-      .logo {
-        width: 180px;
+      .gif-image img {
+        height: 300px;
       }
     }
   </style>
 </head>
 <body>
-  <div class="streak"></div>
-  <img src="logo.png" alt="Logo" class="logo" />
+  <div class="color-overlay"></div>
+  <img class="logo" src="logo.png" alt="Logo">
+
   <div class="container">
-    <div class="left">
-      <h1>SMS Gift Concierge Reminder Service</h1>
-      <div class="details">
-        <p>- We highly curate the best gifts from all over the internet</p>
-        <p>- We remind you when to buy and give you simple options that will impress</p>
-        <p>- We text it all to you for FREE</p>
-        <br>
-        <p><strong>Message “Start” to<br>+1 (866) 763-2839</strong></p>
-      </div>
+    <div class="text-content">
+      <h1>SMS Gift Concierge<br>Reminder Service</h1>
+      <p>- We highly curate the best gifts from all over the internet</p>
+      <p>- We remind you when to buy and give you simple options that will impress</p>
+      <p>- We text it all to you for FREE</p>
+      <strong>Message “Start” to<br>+1 (866) 763-2839</strong>
     </div>
-    <div class="right">
-      <img src="portrait.gif" alt="Animated Gift Portrait" class="portrait" />
+    <div class="gif-image">
+      <img src="portrait.gif" alt="Gift Portrait">
     </div>
   </div>
 </body>
