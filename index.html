@@ -9,48 +9,47 @@
       margin: 0;
       font-family: Arial, sans-serif;
       background-color: white;
+      position: relative;
     }
 
     .color-overlay {
       position: absolute;
-      top: 0;
-      left: 0;
-      width: 120vw;
-      height: 120vh;
-      background: linear-gradient(135deg, rgba(255,0,255,0.2), transparent);
+      width: 100%;
+      height: 50vh;
+      background: linear-gradient(135deg, magenta 0%, transparent 80%);
       z-index: 0;
-      pointer-events: none;
-      mask-image: linear-gradient(to bottom right, black 50%, transparent 50%);
-      -webkit-mask-image: linear-gradient(to bottom right, black 50%, transparent 50%);
     }
 
     .container {
-      position: relative;
-      z-index: 1;
       display: flex;
-      flex-direction: row;
-      align-items: center;
       justify-content: space-between;
+      align-items: center;
       padding: 60px;
-      gap: 40px;
+      z-index: 1;
+      position: relative;
+      flex-wrap: wrap;
     }
 
     .left-column {
       flex: 1;
-      padding-right: 20px;
+      padding-right: 40px;
+      min-width: 300px;
     }
 
     .right-column {
       flex: 1;
+      min-width: 300px;
       display: flex;
       justify-content: center;
+      align-items: center;
+      overflow: hidden;
     }
 
     .right-column img {
+      height: 100%;
       width: auto;
-      height: 500px;
+      max-height: 500px;
       object-fit: cover;
-      object-position: center;
     }
 
     .logo {
@@ -58,15 +57,16 @@
       margin-bottom: 40px;
     }
 
-    .headline {
-      font-size: 42px;
+    h1 {
+      font-size: 36px;
       font-weight: bold;
       margin-bottom: 30px;
     }
 
-    .description {
+    p {
       font-size: 18px;
-      margin-bottom: 20px;
+      line-height: 1.6;
+      margin-bottom: 15px;
     }
 
     .cta {
@@ -78,17 +78,21 @@
     @media (max-width: 768px) {
       .container {
         flex-direction: column;
+        padding: 30px;
+      }
+
+      .right-column {
+        order: -1;
+        margin-bottom: 30px;
+      }
+
+      h1 {
+        font-size: 28px;
         text-align: center;
-        padding: 40px;
       }
-      .right-column img {
-        height: 300px;
-      }
-      .headline {
-        font-size: 32px;
-      }
-      .description, .cta {
-        font-size: 16px;
+
+      p, .cta {
+        text-align: center;
       }
     }
   </style>
@@ -98,11 +102,11 @@
   <div class="container">
     <div class="left-column">
       <img src="logo.png" alt="Logo" class="logo" />
-      <div class="headline">SMS Gift Concierge Reminder Service</div>
-      <div class="description">- We highly curate the best gifts from all over the internet</div>
-      <div class="description">- We remind you when to buy and give you simple options that will impress</div>
-      <div class="description">- We text it all to you for FREE</div>
-      <div class="cta">Message “Start” to <br>+1 (866) 763-2839</div>
+      <h1>SMS Gift Concierge Reminder Service</h1>
+      <p>- We highly curate the best gifts from all over the internet</p>
+      <p>- We remind you when to buy and give you simple options that will impress</p>
+      <p>- We text it all to you for FREE</p>
+      <p class="cta">Message “Start” to<br>+1 (866) 763-2839</p>
     </div>
     <div class="right-column">
       <img src="portrait.gif" alt="Gift Portrait" />
