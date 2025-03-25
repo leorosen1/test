@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -8,124 +7,104 @@
   <style>
     body {
       margin: 0;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
-        Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-      background: white;
-      overflow-x: hidden;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: white;
     }
 
-    .color-overlay {
+    .background {
       position: absolute;
-      top: 0;
-      left: 0;
       width: 100%;
-      height: 60%;
-      background: linear-gradient(120deg, rgba(88, 27, 127, 0.25), rgba(216, 27, 96, 0.25));
-      z-index: 0;
-      pointer-events: none;
-      clip-path: polygon(0 0, 100% 0, 100% 35%, 0 65%);
-      animation: shiftGradient 15s ease-in-out infinite;
+      height: 100vh;
+      background: linear-gradient(135deg, rgba(93, 12, 255, 0.3), rgba(255, 0, 128, 0.3));
+      clip-path: polygon(0 0, 100% 0, 100% 30%, 0 60%);
+      z-index: -1;
+      animation: gradientMove 10s ease infinite alternate;
     }
 
-    @keyframes shiftGradient {
-      0% {
-        background-position: 0% 50%;
-      }
-      50% {
-        background-position: 100% 50%;
-      }
-      100% {
-        background-position: 0% 50%;
-      }
+    @keyframes gradientMove {
+      0% { background-position: 0% 50%; }
+      100% { background-position: 100% 50%; }
     }
 
     .container {
       display: flex;
-      flex-direction: row;
-      align-items: center;
       justify-content: center;
+      align-items: flex-start;
+      padding: 100px 60px 40px;
       min-height: 100vh;
-      position: relative;
-      z-index: 1;
-      padding: 80px;
-      gap: 40px;
+      box-sizing: border-box;
     }
 
-    .left {
+    .content {
       flex: 1;
       max-width: 600px;
+      padding-right: 40px;
     }
 
-    .left h1 {
-      font-size: 3rem;
-      font-weight: 800;
-      margin-bottom: 30px;
+    .content h1 {
+      font-size: 48px;
+      margin-bottom: 20px;
     }
 
-    .left p {
-      font-size: 1.25rem;
-      line-height: 1.6;
-      margin-bottom: 16px;
+    .content p {
+      font-size: 20px;
+      margin: 10px 0;
     }
 
-    .left p:last-of-type {
+    .content p.emoji {
+      font-size: 20px;
+      margin: 8px 0;
+    }
+
+    .content .phone {
       margin-top: 30px;
-      font-weight: 600;
+      font-size: 18px;
+      font-weight: bold;
     }
 
-    .right {
+    .gif {
       flex: 1;
-      max-width: 400px;
-      display: flex;
-      justify-content: center;
-      align-items: start;
-    }
-
-    .right img {
-      width: 100%;
-      max-height: 500px;
-      object-fit: cover;
-      border-radius: 8px;
+      max-width: 350px;
+      height: auto;
     }
 
     .logo {
       position: absolute;
       top: 30px;
-      left: 30px;
+      left: 40px;
       width: 250px;
-      z-index: 2;
     }
 
-    @media (max-width: 900px) {
+    @media (max-width: 768px) {
       .container {
         flex-direction: column;
-        text-align: center;
-        padding: 40px;
+        align-items: center;
+        padding: 40px 20px;
       }
 
-      .right {
-        order: -1;
-        margin-bottom: 40px;
+      .content {
+        padding-right: 0;
+        text-align: center;
+      }
+
+      .gif {
+        margin-top: 20px;
       }
     }
   </style>
 </head>
-
 <body>
-  <div class="color-overlay"></div>
-  <img src="logo.png" class="logo" alt="Logo" />
+  <div class="background"></div>
+  <img src="logo.png" alt="Logo" class="logo" />
   <div class="container">
-    <div class="left">
+    <div class="content">
       <h1>SMS Gift Concierge<br />Reminder Service</h1>
-      <p>🎁 We highly curate the best gifts from all over the internet</p>
-      <p>⏰ We remind you when to buy and give you simple options that will impress</p>
-      <p>📱 We text it all to you for FREE</p>
-      <p>Message “Start” to<br /><strong>+1 (866) 763-2839</strong></p>
+      <p class="emoji">🎁 We highly curate the best gifts from all over the internet</p>
+      <p class="emoji">⏰ We remind you when to buy and give you simple options that will impress</p>
+      <p class="emoji">📲 We text it all to you for FREE</p>
+      <p class="phone">Message “Start” to<br />+1 (866) 763-2839</p>
     </div>
-    <div class="right">
-      <img src="portrait.gif" alt="Gift Portrait" />
-    </div>
+    <img src="portrait.gif" alt="Gift Portrait" class="gif" />
   </div>
 </body>
-
 </html>
